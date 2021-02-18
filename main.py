@@ -11,6 +11,7 @@ github = Github(os.environ["TRAFFIC_ACTION_TOKEN"])
 print("Repository name: ", repo_name)
 repo = github.get_repo(repo_name)
 
+print os.environ
 
 workplace_path = "{}/{}".format(os.environ["GITHUB_WORKSPACE"], "traffic")
 if not os.path.exists(workplace_path):
@@ -39,6 +40,8 @@ def main():
     
     traffic_frame.index.name = "_date"
     traffic_frame.to_csv(views_path)
+    
+    print(f"Got {len(traffic_dict)} new views, {len(old_traffic_data)} old views, for {len(updated_dict)} total\n")
 
 
     # Clones stats
