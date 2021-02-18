@@ -3,7 +3,10 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-repo_name = os.environ["GITHUB_REPOSITORY"]
+if "REPOSITORY" in os.environ:
+    repo_name = os.environ["REPOSITORY"]
+else:
+    repo_name = os.environ["GITHUB_REPOSITORY"]
 github = Github(os.environ["TRAFFIC_ACTION_TOKEN"])
 print("Repository name: ", repo_name)
 repo = github.get_repo(repo_name)
