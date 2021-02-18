@@ -11,7 +11,7 @@ github = Github(os.environ["TRAFFIC_ACTION_TOKEN"])
 print("Repository name: ", repo_name)
 repo = github.get_repo(repo_name)
 
-print os.environ
+print(os.environ)
 
 workplace_path = "{}/{}".format(os.environ["GITHUB_WORKSPACE"], "traffic")
 if not os.path.exists(workplace_path):
